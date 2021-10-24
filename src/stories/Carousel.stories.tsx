@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Carousel from './Carousel';
+import Carousel from '../components/Carousel';
 
 export default {
   title: 'Example/Carousel',

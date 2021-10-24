@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import News from './News';
+import News from '../components/News';
 
 export default {
   title: 'Example/News',

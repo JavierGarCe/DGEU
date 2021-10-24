@@ -1,24 +1,42 @@
 import React from 'react';
+import '../assets/scss/main.scss';
+import Dropdown from './Dropdown';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-interface IHreaderProps { // propiedades se establecen al crear el componente y no cambian
-    collapsed: boolean;
+interface iHeaderProps {
+  collapsed: boolean;
 }
 
-interface iHeaderState { //estado si
-    collapsed: boolean;
+interface iHeaderState {
+  collapsed: boolean;
 }
 
-class Header extends React.Component<IHreaderProps, iHeaderState> {
-    constructor(props: IHreaderProps) {
-        super(props);
-        this.setState({
-            collapsed: true
-        })
-    }
+class Header extends React.Component<iHeaderProps, iHeaderState> {
 
-    public render () {
-        return (<p>Hola Mundo: {this.props.collapsed ? 'collapsed': 'shown'}</p>);
-    }
+  constructor(props: iHeaderProps) {
+    super(props);
+    this.state = { collapsed: true }
+  }
+
+  public toggleHeader = () => {
+    this.setState({
+      collapsed: !!!this.state.collapsed
+    })
+  }
+
+  public render() {
+    return (
+      <nav className="navbar navbar-light bg-light">
+        <a className="navbar-brand" href="#">
+          <img src="https://www.seg-social.es/wps/contenthandler/wss/!ut/p/digest!WHWfHqZ5Ujcl-nn1gtCB9Q/war/POINThemeStatic/themes/Portal8.5/css/img/logo-institucional.png" height={30} className="d-inline-block align-top" alt="" />
+          <img src="https://www.seg-social.es/wps/contenthandler/wss/!ut/p/digest!WHWfHqZ5Ujcl-nn1gtCB9Q/war/POINThemeStatic/themes/Portal8.5/css/img/logo.png" height={40} className="d-inline-block align-top" alt="" />
+        </a>
+
+        <Dropdown options={['Test', 'Test']} title={'Options'} collapsed={true} icon={faBars} />
+
+      </nav>
+    );
+  }
 }
 
 export default Header;

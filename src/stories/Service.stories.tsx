@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Service from './Service';
+import Service from '../components/Service';
 
 export default {
   title: 'Example/Service',

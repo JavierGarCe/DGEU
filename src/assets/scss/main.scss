@@ -1,1 +1,128 @@
 @import "~bootstrap-scss/bootstrap";
+
+.storybook-button {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    border: 1;
+    border-radius: 1em;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+  }
+  .storybook-button--primary {
+    color: white;
+    background-color: #6c757d;
+  }
+  .storybook-button--secondary {
+    color: #333;
+    background-color: #f8f9fa;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+  .storybook-button--small {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+  .storybook-button--medium {
+    font-size: 14px;
+    padding: 11px 20px;
+  }
+  .storybook-button--large {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+#serviceEnvelope{
+    width: 18rem;
+    padding: 10px;
+}
+ #bottomPart{
+     display: flex;
+     justify-content: space-between;
+ }
+
+#newsCard{
+    width: 100%;
+    height: 100%;
+}
+
+#bottomPart{
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.modal{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,.75);
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.modal.is-open{
+    display: flex;
+}
+
+.container{
+    position: relative;
+    min-width: 320px;
+    max-width: 480px;
+    // min-heigth: 200px;
+    // min-heigth: 600px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.modal-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#menu{
+    display:flex;
+    flex-direction: column;
+    width: 125px
+}
+  
+#containerEnvelope{
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+
+#newsCard{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    width: 70%;
+}
+
+#enveloped{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+
+#rightArrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    font-size: 2rem;
+}
+
+#leftArrow {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    font-size: 2rem;
+}
