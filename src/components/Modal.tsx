@@ -20,13 +20,16 @@ class Modal extends React.Component<IModalProps> {
             <article className={`modal ${this.props.isOpen && "is-open"}`}>
                 <div className='container'>
                     <button className='modal-close' onClick={handleModal}>X</button>
-                    <h3>
+                    <p className='bodyText'>
                         {this.props.text}
-                    </h3>
+                    </p>
                 </div>
             </article>
         );
     }
 }
+
+const css = `.bodyText{text-align: justify; padding: 30px;}`;
+document.head.appendChild(document.createElement("style")).textContent = css;
 
 export default Modal;
