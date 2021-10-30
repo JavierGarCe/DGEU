@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/scss/main.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
-import Modal from './Modal';
+import Modal from '../containers/Modal';
 
 
 interface iNewsProps {
@@ -13,29 +13,21 @@ interface iNewsProps {
     date: string;
     imageUrl: string;
     collapsed: boolean;
+    onShowClick: (collaped: boolean) => any;
 }
 
-interface iNewsState {
-    collapsed: boolean;
-}
 
-class News extends React.Component<iNewsProps, iNewsState> {
-
-    constructor(props: iNewsProps) {
-        super(props);
-        this.state = { collapsed: this.props.collapsed }
-    }
-
-    public toggleNews = () => {
-        this.setState({
-            collapsed: !!!this.state.collapsed
-        })
-    }
+class News extends React.Component<iNewsProps> {
 
     public render() {
+
+        const onShowClick = () => {
+            this.props.onShowClick(true);
+        }
+
         return (
             <div className="card" id="newsCard">
-                <img className="card-img-top" width={50} height={150} src={this.props.imageUrl} />
+                <img className="card-img-top" width={50} height={300} src={this.props.imageUrl} />
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className="card-text">{this.props.subtitle}</p>
@@ -58,9 +50,9 @@ class News extends React.Component<iNewsProps, iNewsState> {
                     </small>
                 </div>
 
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm" onClick={this.toggleNews} >Ver noticia</button>
+                <button type="button" className="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm" onClick={onShowClick} >Ver noticia</button>
 
-                <Modal text={this.props.body} isOpen={!this.state.collapsed} />
+                <Modal text={this.props.body} />
 
             </div>
         );

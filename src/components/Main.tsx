@@ -15,9 +15,6 @@ class Main extends React.Component {
                 <Button label={'Trabajadores'} pressed={false} />
                 <Button label={'Pensionistas'} pressed={false} />
                 <Button label={'Empresarios'} pressed={false} />
-                <News title={'undefined'} subtitle={'undefined'} author={'undefined'} body={'undefined'} date={'undefined'} imageUrl={'undefined'} collapsed={true} />
-                <Modal text={'test'} isOpen={false} />
-                <Carousel />
                 <Container services={[['']]} title={'Titulo'} />
             </div>
         );

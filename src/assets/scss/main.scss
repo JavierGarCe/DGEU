@@ -73,7 +73,8 @@
 .container{
     position: relative;
     min-width: 320px;
-    max-width: 480px;
+    max-width: 50%;
+    margin: 10px;
     // min-heigth: 200px;
     // min-heigth: 600px;
     overflow-y: auto;
