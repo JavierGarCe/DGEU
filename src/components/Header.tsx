@@ -26,15 +26,17 @@ class Header extends React.Component<iHeaderProps, iHeaderState> {
 
   public render() {
     return (
-      <nav className="navbar navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          <img src="https://www.seg-social.es/wps/contenthandler/wss/!ut/p/digest!WHWfHqZ5Ujcl-nn1gtCB9Q/war/POINThemeStatic/themes/Portal8.5/css/img/logo-institucional.png" height={30} className="d-inline-block align-top" alt="" />
-          <img src="https://www.seg-social.es/wps/contenthandler/wss/!ut/p/digest!WHWfHqZ5Ujcl-nn1gtCB9Q/war/POINThemeStatic/themes/Portal8.5/css/img/logo.png" height={40} className="d-inline-block align-top" alt="" />
-        </a>
+      <div className="row">
+        <nav className="navbar navbar-light bg-light">
+          <a className="navbar-brand" href="#">
+            <img src="https://www.seg-social.es/wps/contenthandler/wss/!ut/p/digest!WHWfHqZ5Ujcl-nn1gtCB9Q/war/POINThemeStatic/themes/Portal8.5/css/img/logo-institucional.png" height={30} className="d-inline-block align-top" alt="" />
+            <img src="https://www.seg-social.es/wps/contenthandler/wss/!ut/p/digest!WHWfHqZ5Ujcl-nn1gtCB9Q/war/POINThemeStatic/themes/Portal8.5/css/img/logo.png" height={40} className="d-inline-block align-top" alt="" />
+          </a>
 
-        <Dropdown options={['Test', 'Test']} title={'Options'} collapsed={true} icon={faBars} />
+          <Dropdown options={['Consultas', 'Sugerencias', 'Idioma']} title={'Options'} collapsed={true} icon={faBars} />
 
-      </nav>
+        </nav>
+      </div>
     );
   }
 }

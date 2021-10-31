@@ -5,43 +5,27 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IButtonProps {
-  pressed: boolean;
-  backgroundColor?: string;
-  icon?: IconDefinition;
-  size?: 'small' | 'medium' | 'large';
-  label: String;
+  backgroundColor: string;
+  icon: IconDefinition;
+  size: 'small' | 'medium' | 'large';
+  label: string;
+  onPressButton: (content: string) => any; 
 }
 
-interface iButtonState {
-  pressed: boolean;
-}
-
-class Button extends React.Component<IButtonProps, iButtonState> {
-
-  constructor(props: IButtonProps) {
-    super(props);
-    this.state = { pressed: this.props.pressed }
-  }
-
-  static defaultProps = {
-    primary: false,
-    size: 'medium',
-  }
-
-  public toggleButton = () => {
-    this.setState({
-      pressed: !!!this.state.pressed
-    })
-  }
+class Button extends React.Component<IButtonProps> {
 
   public render() {
-    const { pressed, size, backgroundColor, label, ...props } = this.props;
-    const mode = this.state.pressed ? 'storybook-button--primary' : 'storybook-button--secondary';
+    const { size, backgroundColor, label, ...props } = this.props;
+
+    const handleButton = () => {
+      this.props.onPressButton(this.props.label);
+    }
+
     return (
       <button
         type="button"
-        onClick={this.toggleButton}
-        className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+        onClick={handleButton}
+        className={['storybook-button', `storybook-button--${size}`].join(' ')}
         style={{ backgroundColor }}
         {...props}
       >

@@ -5,8 +5,8 @@ import Carousel from './containers/Carousel';
 import { Action, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import IGlobalState, { initialState } from './state/globalState';
-import { ICustomAction } from './actions/customAction';
-import Modal from './components/Modal';
+import { ICustomAction, IContentAction } from './actions/customActions';
+import Main from './containers/Main';
 
 const reducer = (state: IGlobalState = initialState, action: Action) => {
   switch (action.type) {
@@ -23,7 +23,7 @@ const reducer = (state: IGlobalState = initialState, action: Action) => {
       }
     
     case 'MODAL':
-      const modalAction = action as ICustomAction;  // TO DO: change custom action name
+      const modalAction = action as ICustomAction;
       if (modalAction.payload) {
         // Opened
         return {...state, showModal: true}
@@ -31,6 +31,10 @@ const reducer = (state: IGlobalState = initialState, action: Action) => {
         //Closed
         return {...state, showModal: false}
       }
+
+    case 'CONTENT':
+      const contentAction = action as IContentAction;
+      return {...state, mainContent: contentAction.payload}
   }
   return state;
 }
@@ -42,6 +46,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Header collapsed={true} />
+        <Main/>
         <Carousel />
       </div>
     </Provider>

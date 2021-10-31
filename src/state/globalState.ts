@@ -1,13 +1,13 @@
 interface IGlobalState {
-    rol: string;
     carouselIndex: number;
     showModal: boolean;
+    mainContent: string;
 }
 
 export default IGlobalState;
 
 export const initialState: IGlobalState = {
-    rol: "trabajador",
     carouselIndex: 0,
-    showModal: false
+    showModal: false,
+    mainContent: 'Inicio'
 }
