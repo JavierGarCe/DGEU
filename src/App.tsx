@@ -5,9 +5,9 @@ import Carousel from './containers/Carousel';
 import { Action, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import IGlobalState, { initialState } from './state/globalState';
-import { ICustomAction, IContentAction } from './actions/customActions';
+import { ICustomAction, IContentAction, IButtonAction } from './actions/customActions';
 import Main from './containers/Main';
-import Container from './components/Container';
+import Container from './containers/Container';
 
 const reducer = (state: IGlobalState = initialState, action: Action) => {
   switch (action.type) {
@@ -33,9 +33,16 @@ const reducer = (state: IGlobalState = initialState, action: Action) => {
         return { ...state, showModal: false }
       }
 
-    case 'CONTENT':
-      const contentAction = action as IContentAction;
-      return { ...state, mainContent: contentAction.payload }
+    case 'BUTTON':
+      const buttonAction = action as IButtonAction;
+      console.log(buttonAction.payload)
+      console.log(buttonAction.context)
+      if (buttonAction.context == 'main') {
+        return { ...state, mainContent: buttonAction.payload }
+      } else {
+        return { ...state, servicesType: buttonAction.payload }
+      }
+
   }
   return state;
 }
@@ -52,7 +59,7 @@ function App() {
         <Container services={[
           ['Adminstración', 'Acceso a la Web de Administración. Punto de acceso general.', 'https://www.seg-social.es/wps/wcm/connect/wss/d552f5c4-83fa-4a9b-a1da-8127342f149e/footer-slider-7-grey.gif?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-d552f5c4-83fa-4a9b-a1da-8127342f149e-mfvMYuR', 'Administración'],
           ['Reutilización de Información', 'Acceso a Reutilización de Información Pública.', 'https://www.seg-social.es/wps/wcm/connect/wss/1d1a1fac-945e-4c57-bc7d-b3cf1ea54acb/footer-slider-5-grey.gif?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-1d1a1fac-945e-4c57-bc7d-b3cf1ea54acb-mfvMYuR', 'Administración'],
-          ['Transparencia', 'Acceso al Portal de la Transparencia.', 'https://www.seg-social.es/wps/wcm/connect/wss/0938361e-621c-439a-a765-da745674099c/footer-slider-10_GREY.gif?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-0938361e-621c-439a-a765-da745674099c-mW7SKn8', 'Administración'],
+          ['Transparencia', 'Acceso al Portal de la Transparencia.', 'https://www.seg-social.es/wps/wcm/connect/wss/0938361e-621c-439a-a765-da745674099c/footer-slider-10_GREY.gif?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-0938361e-621c-439a-a765-da745674099c-mW7SKn8', 'Administracion'],
           ['Protección de datos', 'Acceso a la Seguridad Social - Protección de datos.', 'https://www.seg-social.es/wps/wcm/connect/wss/ea1d04db-3b5a-46dd-b383-06d20cd0b6aa/PDatosB.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-ea1d04db-3b5a-46dd-b383-06d20cd0b6aa-mSdlJGF', 'Administración'],
           ['Lucha contra el Fraude', 'Acceso al Observatorio Lucha contra el Fraude a la Seguridad Social', 'https://www.seg-social.es/wps/wcm/connect/wss/badbf526-ee0d-48e6-b031-55ece861af41/Observatorio_BN.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-badbf526-ee0d-48e6-b031-55ece861af41-nOU1xsD', 'Administración'],
           ['Cl@ve', 'Identidad Electrónica para las Administraciones.', 'https://www.seg-social.es/wps/wcm/connect/wss/0d9d2f6c-c133-4319-afc9-127e6af26f18/footer-slider-1-grey.gif?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_2G50H38209D640QTQ57OVB2000-0d9d2f6c-c133-4319-afc9-127e6af26f18-mSdlArq', 'Administración'],

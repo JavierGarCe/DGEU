@@ -1,54 +1,67 @@
 import React from 'react';
 import '../assets/scss/main.scss';
-import Button from './Button';
 import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Dropdown from './Dropdown';
+import Button from '../containers/Button';
 import Service from './Service';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 interface iContainerProps {
   services: string[][];
   title: string;
-}
-
-interface iContainerState {
-  search: string;
+  type: string;
 }
 
 
-class Container extends React.Component<iContainerProps, iContainerState> {
 
-  constructor(props: iContainerProps) {
-    super(props);
-    this.state = {search: ''}
-  }
+
+class Container extends React.Component<iContainerProps> {
 
   public render() {
+
     return (
       <div className="container-fluid" id="containerEnvelope">
         <div className="row">
-          <div className="col-6">
+          <div className="col-3">
             <h1>{this.props.title}</h1>
           </div>
-          <div className="col-2">
+          <div className="col-3">
             <div id="bottomPart" className="form-inline my-2 my-lg-0">
-              <input value={this.state.search} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(e)=>{this.setState({search: e.target.value})}} />
-              <FontAwesomeIcon icon={faSearch} size={'2x'}/>
+              <input /*value={this.state.search}*/ className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => { this.setState({ search: e.target.value }) }} />
+              <FontAwesomeIcon icon={faSearch} size={'2x'} />
             </div>
           </div>
-          <div className="col-1" id="containerDropFather">
-          <div id="containerDropFather">
-            <Dropdown options={['Option1', 'Option1']} title={''} collapsed={true} icon={faFilter} />
+          <div className="col" >
+              <Button label={'Administración'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
           </div>
+          <div className="col" >
+              <Button label={'Ayuda'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+          </div>
+          <div className="col" >
+              <Button label={'Comunicación'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+          </div>
+          <div className="col" >
+             <Button label={'Destacados'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+          </div>
+          <div className="col" >
+              <Button label={'Estadistica'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+          </div>
+          <div className="col" >
+              <Button label={'Sede electrónica'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
           </div>
         </div>
         <div className="row" id="containerMargins">
-          {this.props.services.map((s, i) => (
-            <div className="col">
-              <Service title={s[0]} description={s[1]} imageUrl={s[2]} type={s[3]}/>
-            </div>
-          ))}
+          {this.props.services.map((s, i) => {
+            if (s[3] == this.props.type) {
+              return (
+                <div className="col">
+                  <Service title={s[0]} description={s[1]} imageUrl={s[2]} type={s[3]} />
+                </div>
+              )
+            }
+
+          })}
         </div>
       </div>
     );

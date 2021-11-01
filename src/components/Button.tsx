@@ -6,10 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IButtonProps {
   backgroundColor: string;
-  icon: IconDefinition;
+  icon?: IconDefinition;
   size: 'small' | 'medium' | 'large';
   label: string;
-  onPressButton: (content: string) => any; 
+  context: string;
+  onPressButton: (content: string, contextType:string) => any; 
 }
 
 class Button extends React.Component<IButtonProps> {
@@ -18,7 +19,7 @@ class Button extends React.Component<IButtonProps> {
     const { size, backgroundColor, label, ...props } = this.props;
 
     const handleButton = () => {
-      this.props.onPressButton(this.props.label);
+      this.props.onPressButton(this.props.label, this.props.context);
     }
 
     return (

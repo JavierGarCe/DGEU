@@ -13,19 +13,19 @@ class Main extends React.Component<iMainProps> {
             <div className='main'>
                 <div className="row">
                     <div className="col">
-                        <Button label={'Inicio'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} />
+                        <Button label={'Inicio'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} context={'main'} />
                     </div>
                     <div className="col">
-                        <Button label={'Conocenos'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} />
+                        <Button label={'Conocenos'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} context={'main'}/>
                     </div>
                     <div className="col">
-                        <Button label={'Trabajadores'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} />
+                        <Button label={'Trabajadores'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} context={'main'}/>
                     </div>
                     <div className="col">
-                        <Button label={'Pensionistas'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} />
+                        <Button label={'Pensionistas'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} context={'main'}/>
                     </div>
                     <div className="col">
-                        <Button label={'Empresarios'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} />
+                        <Button label={'Empresarios'} icon={faBars} backgroundColor={'#e6ede7'} size={'medium'} context={'main'}/>
                     </div>
                 </div>
                 <div className="row">

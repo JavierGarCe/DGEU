@@ -7,3 +7,8 @@ export interface ICustomAction extends Action {
 export interface IContentAction extends Action {
     payload: string;
 }
+
+export interface IButtonAction extends Action {
+    payload: string;
+    context: string;
+}

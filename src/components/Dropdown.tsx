@@ -6,10 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 interface IDropdownProps {
-  options: String[];
+  options: string[];
   title: string;
   collapsed: boolean;
   icon: IconDefinition;
+  isGlobal: boolean; 
 }
 
 interface iDropdownState {
@@ -30,6 +31,7 @@ class Dropdown extends React.Component<IDropdownProps, iDropdownState> {
   }
 
   public render() {
+
     return (
       <div id='menu' className="btn-group">
         <div onClick={this.toggleSelect} className='dropdown-toggle' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,7 +46,7 @@ class Dropdown extends React.Component<IDropdownProps, iDropdownState> {
         </div>
         <div>
           {this.state.collapsed ? null : this.props.options.map((optionName, i) => (
-            <a className="dropdown-item" id="textRight" href="#">{optionName}</a>
+            <div className="dropdown-item" id="textRight">{optionName}</div>
           ))}
         </div>
       </div>

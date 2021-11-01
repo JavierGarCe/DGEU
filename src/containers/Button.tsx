@@ -6,7 +6,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface ComponentOwnProps {
   backgroundColor: string;
-  icon: IconDefinition;
+  icon?: IconDefinition;
   size: 'small' | 'medium' | 'large';
   label: string;
 }
@@ -16,8 +16,8 @@ const mapStateToProps = (state: IGlobalState, ownProps: ComponentOwnProps) => {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    onPressButton: (content: string) => {
-        dispatch({type: 'CONTENT', payload: content})    
+    onPressButton: (content: string, contextType: string) => {
+        dispatch({type: 'BUTTON', payload: content, context: contextType})    
     }
 })
 

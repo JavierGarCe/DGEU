@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/scss/main.scss';
-import Dropdown from './Dropdown';
+import Dropdown from '../components/Dropdown';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 interface iHeaderProps {
@@ -34,7 +34,7 @@ class Header extends React.Component<iHeaderProps, iHeaderState> {
           </a>
 
           <div id='dropFather'>
-          <Dropdown options={['Consultas', 'Sugerencias', 'Idioma']} title={'Options'} collapsed={true} icon={faBars} />
+          <Dropdown options={['Consultas', 'Sugerencias', 'Idioma']} title={'Options'} collapsed={true} icon={faBars} isGlobal={false} />
           </div>
         </nav>
       </div>
