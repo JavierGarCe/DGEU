@@ -3,6 +3,7 @@ interface IGlobalState {
     showModal: boolean;
     mainContent: string;
     servicesType: string;
+    serviceSearch: string;
 }
 
 export default IGlobalState;
@@ -11,5 +12,6 @@ export const initialState: IGlobalState = {
     carouselIndex: 0,
     showModal: false,
     mainContent: 'Inicio',
-    servicesType: 'Administración'
+    servicesType: 'Administración',
+    serviceSearch: ''
 }

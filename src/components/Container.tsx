@@ -11,6 +11,8 @@ interface iContainerProps {
   services: string[][];
   title: string;
   type: string;
+  onSearch: (searchParam: string) => any;
+  searchTerm: string;
 }
 
 
@@ -20,6 +22,10 @@ class Container extends React.Component<iContainerProps> {
 
   public render() {
 
+    const handleSearch = (searchTerm: string) => {
+      this.props.onSearch(searchTerm);
+    }
+
     return (
       <div className="container-fluid" id="containerEnvelope">
         <div className="row">
@@ -28,7 +34,7 @@ class Container extends React.Component<iContainerProps> {
           </div>
           <div className="col-3">
             <div id="bottomPart" className="form-inline my-2 my-lg-0">
-              <input /*value={this.state.search}*/ className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => { this.setState({ search: e.target.value }) }} />
+              <input value={this.props.searchTerm} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => {handleSearch(e.target.value)}} />
               <FontAwesomeIcon icon={faSearch} size={'2x'} />
             </div>
           </div>
@@ -53,7 +59,7 @@ class Container extends React.Component<iContainerProps> {
         </div>
         <div className="row" id="containerMargins">
           {this.props.services.map((s, i) => {
-            if (s[3] == this.props.type) {
+            if (s[3] == this.props.type && (this.props.searchTerm == '' || s[0].toLowerCase().includes(this.props.searchTerm.toLowerCase()))) {
               return (
                 <div className="col">
                   <Service title={s[0]} description={s[1]} imageUrl={s[2]} type={s[3]} />

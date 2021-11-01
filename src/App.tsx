@@ -35,13 +35,16 @@ const reducer = (state: IGlobalState = initialState, action: Action) => {
 
     case 'BUTTON':
       const buttonAction = action as IButtonAction;
-      console.log(buttonAction.payload)
-      console.log(buttonAction.context)
       if (buttonAction.context == 'main') {
         return { ...state, mainContent: buttonAction.payload }
       } else {
-        return { ...state, servicesType: buttonAction.payload }
+        return { ...state, servicesType: buttonAction.payload, serviceSearch: ''}
       }
+
+    case 'SEARCH':
+      const searchAction = action as IContentAction;
+      console.log(searchAction.payload)
+      return {...state, serviceSearch: searchAction.payload}
 
   }
   return state;
