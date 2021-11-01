@@ -28,7 +28,7 @@ class Container extends React.Component<iContainerProps, iContainerState> {
     return (
       <div className="container-fluid" id="containerEnvelope">
         <div className="row">
-          <div className="col-8">
+          <div className="col-6">
             <h1>{this.props.title}</h1>
           </div>
           <div className="col-2">
@@ -37,14 +37,16 @@ class Container extends React.Component<iContainerProps, iContainerState> {
               <FontAwesomeIcon icon={faSearch} size={'2x'}/>
             </div>
           </div>
-          <div className="col">
+          <div className="col-1" id="containerDropFather">
+          <div id="containerDropFather">
             <Dropdown options={['Option1', 'Option1']} title={''} collapsed={true} icon={faFilter} />
           </div>
+          </div>
         </div>
-        <div className="row">
+        <div className="row" id="containerMargins">
           {this.props.services.map((s, i) => (
             <div className="col">
-              <Service title={s[0]} description={s[1]} imageUrl={s[2]} />
+              <Service title={s[0]} description={s[1]} imageUrl={s[2]} type={s[3]}/>
             </div>
           ))}
         </div>
@@ -52,5 +54,12 @@ class Container extends React.Component<iContainerProps, iContainerState> {
     );
   }
 }
+
+const css = `#containerDropFather{position: absolute;top: 10px; right:10px;}`;
+document.head.appendChild(document.createElement("style")).textContent = css;
+
+const css2 = `#containerMargins{margin:50px;}`;
+document.head.appendChild(document.createElement("style")).textContent = css2;
+
 
 export default Container;

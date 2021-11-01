@@ -42,9 +42,9 @@ class Dropdown extends React.Component<IDropdownProps, iDropdownState> {
             {' Opciones'}
           </button>
         </div>
-        <div id="dropDown">
+        <div>
           {this.state.collapsed ? null : this.props.options.map((optionName, i) => (
-            <a className="dropdown-item" href="#">{optionName}</a>
+            <a className="dropdown-item" id="textRight" href="#">{optionName}</a>
           ))}
         </div>
       </div>
@@ -52,10 +52,7 @@ class Dropdown extends React.Component<IDropdownProps, iDropdownState> {
   }
 }
 
-const css = `#dropDown{position: relative;}`;
+const css = `#textRight{text-align: right;}`;
 document.head.appendChild(document.createElement("style")).textContent = css;
-
-const css2 = `#menu{position: absolute;top: 10%; right: 10px;}`;
-document.head.appendChild(document.createElement("style")).textContent = css2;
 
 export default Dropdown;

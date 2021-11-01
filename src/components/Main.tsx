@@ -1,10 +1,6 @@
 import React from 'react';
 import '../assets/scss/main.scss';
 import Button from "../containers/Button"
-import News from "./News";
-import Modal from "./Modal";
-import Carousel from './Carousel';
-import Container from './Container';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 interface iMainProps {
