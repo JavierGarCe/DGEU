@@ -28,19 +28,19 @@ class News extends React.Component<iNewsProps> {
         return (
             <div className="card" id="newsCard">
                 <img className="card-img-top" width={50} height={300} src={this.props.imageUrl} />
-                <div className="card-body">
+                <div className="card-body" id="newsMain">
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className="card-text">{this.props.subtitle}</p>
                 </div>
-                <div className="card-footer">
+                <div className="card-footer" id="newsFooter">
                     <small className="text-muted" id="bottomPart">
-                        <div >
+                        <div id="whiteElements">
                             <FontAwesomeIcon icon={faUser} />
                             {
                                 '  ' + this.props.author
                             }
                         </div>
-                        <div>
+                        <div id="whiteElements">
                             <FontAwesomeIcon icon={faCalendar} />
                             {
                                 '  ' + this.props.date

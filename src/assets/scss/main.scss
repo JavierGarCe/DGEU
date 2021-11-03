@@ -31,9 +31,11 @@
     padding: 12px 24px;
   }
 
-#serviceEnvelope{
+  #serviceEnvelope{
     width: 18rem;
     padding: 10px;
+    background-color: #f4f4f4;
+    margin: 10px;
 }
  #bottomPart{
      display: flex;
@@ -95,9 +97,22 @@
 }
   
 #containerEnvelope{
-    background-color: #f7f7f7;
+    background-color: #e2edf7;
     padding: 10px;
-    position: absolute;
+    border-radius: 20px;
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 80%;
+}
+
+#mainPageContent{
+    background-color: #e2edf7;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 10%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 80%;
 }
 
 #newsCard{
@@ -112,8 +127,9 @@
     justify-content: center;
     align-content: center;
     position: relative;
-    background-color: #f7f7f7;
+    background-color: #e2edf7;
     padding: 10px;
+    border-radius: 20px;
 }
 
 #rightArrow {
@@ -128,4 +144,20 @@
     top: 50%;
     left: 20px;
     font-size: 2rem;
+}
+
+#mainContent {
+    color: #006f93;  
+}
+
+#mainContent a {
+    text-decoration: none;
+}
+#mainContent a:hover {
+    color: #006f93;  
+    text-decoration: underline;
+}
+
+#whiteButtons {
+    color: white;
 }

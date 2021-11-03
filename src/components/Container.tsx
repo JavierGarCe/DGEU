@@ -29,7 +29,7 @@ class Container extends React.Component<iContainerProps> {
     return (
       <div className="container-fluid" id="containerEnvelope">
         <div className="row">
-          <div className="col-3">
+          <div className="col-3" id="mainContent">
             <h1>{this.props.title}</h1>
           </div>
           <div className="col-3">
@@ -39,22 +39,22 @@ class Container extends React.Component<iContainerProps> {
             </div>
           </div>
           <div className="col" >
-              <Button label={'Administración'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+              <Button label={'Administración'}  backgroundColor={'#006f93'} size={'medium'} context={'services'} />
           </div>
           <div className="col" >
-              <Button label={'Ayuda'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+              <Button label={'Ayuda'}  backgroundColor={'#006f93'} size={'medium'} context={'services'} />
           </div>
           <div className="col" >
-              <Button label={'Comunicación'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+              <Button label={'Comunicación'}  backgroundColor={'#006f93'} size={'medium'} context={'services'} />
           </div>
           <div className="col" >
-             <Button label={'Destacados'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+             <Button label={'Destacados'}  backgroundColor={'#006f93'} size={'medium'} context={'services'} />
           </div>
           <div className="col" >
-              <Button label={'Estadistica'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+              <Button label={'Estadistica'}  backgroundColor={'#006f93'} size={'medium'} context={'services'} />
           </div>
           <div className="col" >
-              <Button label={'Sede electrónica'}  backgroundColor={'#e6ede7'} size={'medium'} context={'services'} />
+              <Button label={'Sede electrónica'}  backgroundColor={'#006f93'} size={'medium'} context={'services'} />
           </div>
         </div>
         <div className="row" id="containerMargins">

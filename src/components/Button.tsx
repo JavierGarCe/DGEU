@@ -24,6 +24,7 @@ class Button extends React.Component<IButtonProps> {
 
     return (
       <button
+        id='whiteButtons'
         type="button"
         onClick={handleButton}
         className={['storybook-button', `storybook-button--${size}`].join(' ')}
